@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Apply - HazixWork</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="apply.html" class="active">Apply</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Application Form -->
+  <main class="form-container">
+    <form action="thankyou.html" method="POST" class="apply-form">
+      <h2>Apply to HazixWork</h2>
+
+      <label for="fullname">Full Name:</label>
+      <input type="text" id="fullname" name="fullname" required />
+
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="position">Position you're applying for:</label>
+      <input type="text" id="position" name="position" required />
+
+      <label for="portfolio">Portfolio / Social Link (optional):</label>
+      <input type="url" id="portfolio" name="portfolio" />
+
+      <label for="message">Why should we choose you?</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Submit Application</button>
+    </form>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 HazixWork. All rights reserved.</p>
+    <p>Contact: 
+      <a href="mailto:hazixfreefire@gmail.com">Email</a> | 
+      <a href="https://wa.me/212751482553" target="_blank" rel="noopener">WhatsApp</a> | 
+      <a href="https://www.instagram.com/hazixwork/" target="_blank" rel="noopener">Instagram</a>
+    </p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,143 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fafafa;
+  color: #222;
+  line-height: 1.6;
+}
+
+a {
+  color: #00f7ff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #111;
+  padding: 15px;
+  text-align: center;
+}
+
+.navbar a {
+  color: white;
+  margin: 0 18px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.navbar a.active {
+  color: #00f7ff;
+  text-decoration: underline;
+}
+
+/* Main content containers */
+.main-content,
+.form-container,
+.thankyou-container,
+.contact-container,
+.about-container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+/* Large Apply Button on Home Page */
+.btn-apply-large {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 20px 60px;
+  font-size: 28px;
+  font-weight: bold;
+  background-color: #111;
+  color: white;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-apply-large:hover {
+  background-color: #00f7ff;
+  color: #111;
+}
+
+/* Form styles */
+.apply-form label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.apply-form input,
+.apply-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+.apply-form button {
+  margin-top: 25px;
+  padding: 12px 25px;
+  background-color: #111;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.apply-form button:hover {
+  background-color: #00f7ff;
+  color: #111;
+}
+
+/* Footer */
+footer {
+  background-color: #111;
+  color: white;
+  text-align: center;
+  padding: 25px 15px;
+  margin-top: 60px;
+  font-size: 14px;
+}
+
+footer a {
+  color: #00f7ff;
+  margin: 0 6px;
+}
+
+/* Button on thankyou page */
+.thankyou-container .btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  background-color: #111;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.thankyou-container .btn:hover {
+  background-color: #00f7ff;
+  color: #111;
+}
