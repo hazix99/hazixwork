@@ -2,36 +2,85 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>About - HazixWork</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HazixWork | About</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+<header>
+  <h1>HazixWork</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="apply.html">Apply</a>
+    <a href="about.html" class="active">About</a>
+    <a href="contact.html">Contact</a>
+    <button id="darkModeToggle" aria-label="Toggle Dark Mode" title="Toggle Dark Mode">🌙</button>
+  </nav>
+</header>
 
-  <!-- Navbar -->
-  <header>
-    <nav class="navbar">
-      <a href="index.html">Home</a>
-      <a href="about.html" class="active">About</a>
-      <a href="apply.html">Apply</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
-
-  <!-- About content -->
-  <main class="about-container">
+<main class="container">
+  <section class="hero" data-aos="fade-up">
     <h2>About HazixWork</h2>
-    <p>HazixWork is dedicated to connecting talented individuals with amazing job opportunities. We value creativity, commitment, and innovation.</p>
-  </main>
+    <p>HazixWork is a platform dedicated to connecting talented freelancers with exciting job opportunities worldwide. We believe everyone deserves a chance to work remotely and grow professionally.</p>
+  </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 HazixWork. All rights reserved.</p>
-    <p>Contact: 
-      <a href="mailto:hazixfreefire@gmail.com">Email</a> | 
-      <a href="https://wa.me/212751482553" target="_blank" rel="noopener">WhatsApp</a> | 
-      <a href="https://www.instagram.com/hazixwork/" target="_blank" rel="noopener">Instagram</a>
-    </p>
-  </footer>
+  <section class="services" data-aos="fade-up" data-aos-delay="100">
+    <h2>Our Mission</h2>
+    <ul>
+      <li>Empower freelancers globally.</li>
+      <li>Provide a seamless job application experience.</li>
+      <li>Support both employers and applicants.</li>
+    </ul>
+  </section>
+
+  <section class="testimonials" data-aos="fade-up" data-aos-delay="200">
+    <h2>What People Say</h2>
+    <blockquote>“HazixWork changed my career path for the better. Thanks!” – Sara M.</blockquote>
+    <blockquote>“Reliable and user-friendly platform.” – Ali B.</blockquote>
+  </section>
+</main>
+
+<footer>
+  <p>📧 <a href="mailto:hazixfreefire@gmail.com">hazixfreefire@gmail.com</a> | 📞 <a href="https://wa.me/212751482553" target="_blank">+212 751 482 553</a></p>
+  <p>&copy; 2025 HazixWork. All rights reserved.</p>
+</footer>
+
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+
+  // Dark Mode Toggle
+  const toggleBtn = document.getElementById('darkModeToggle');
+  const body = document.body;
+  const currentTheme = localStorage.getItem('theme');
+
+  if(currentTheme === 'dark') {
+    body.classList.add('dark-mode');
+    toggleBtn.textContent = '☀️';
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    if(body.classList.contains('dark-mode')) {
+      toggleBtn.textContent = '☀️';
+      localStorage.setItem('theme', 'dark');
+    } else {
+      toggleBtn.textContent = '🌙';
+      localStorage.setItem('theme', 'light');
+    }
+  });
+</script>
 
 </body>
 </html>
