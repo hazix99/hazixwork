@@ -2,54 +2,87 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Apply - HazixWork</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HazixWork | Apply</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+<header>
+  <h1>HazixWork</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="apply.html" class="active">Apply</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <button id="darkModeToggle" aria-label="Toggle Dark Mode" title="Toggle Dark Mode">🌙</button>
+  </nav>
+</header>
 
-  <!-- Navbar -->
-  <header>
-    <nav class="navbar">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="apply.html" class="active">Apply</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+<main class="container">
+  <section data-aos="fade-up">
+    <h2 style="text-align:center; margin-bottom: 25px;">Apply Now</h2>
+    <form action="thankyou.html" method="POST" enctype="multipart/form-data">
+      <label for="name">Full Name *</label>
+      <input type="text" id="name" name="name" placeholder="Your full name" required />
 
-  <!-- Application Form -->
-  <main class="form-container">
-    <form action="thankyou.html" method="POST" class="apply-form">
-      <h2>Apply to HazixWork</h2>
+      <label for="email">Email Address *</label>
+      <input type="email" id="email" name="email" placeholder="Your email" required />
 
-      <label for="fullname">Full Name:</label>
-      <input type="text" id="fullname" name="fullname" required />
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" placeholder="Optional" />
 
-      <label for="email">Email Address:</label>
-      <input type="email" id="email" name="email" required />
+      <label for="cv">Upload Your CV</label>
+      <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" />
 
-      <label for="position">Position you're applying for:</label>
-      <input type="text" id="position" name="position" required />
+      <label for="message">Additional Info</label>
+      <textarea id="message" name="message" placeholder="Tell us more about yourself"></textarea>
 
-      <label for="portfolio">Portfolio / Social Link (optional):</label>
-      <input type="url" id="portfolio" name="portfolio" />
-
-      <label for="message">Why should we choose you?</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
-
-      <button type="submit">Submit Application</button>
+      <button type="submit" class="btn">Submit Application</button>
     </form>
-  </main>
+  </section>
+</main>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 HazixWork. All rights reserved.</p>
-    <p>Contact: 
-      <a href="mailto:hazixfreefire@gmail.com">Email</a> | 
-      <a href="https://wa.me/212751482553" target="_blank" rel="noopener">WhatsApp</a> | 
-      <a href="https://www.instagram.com/hazixwork/" target="_blank" rel="noopener">Instagram</a>
-    </p>
-  </footer>
+<footer>
+  <p>📧 <a href="mailto:hazixfreefire@gmail.com">hazixfreefire@gmail.com</a> | 📞 <a href="https://wa.me/212751482553" target="_blank">+212 751 482 553</a></p>
+  <p>&copy; 2025 HazixWork. All rights reserved.</p>
+</footer>
+
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+
+  // Dark Mode Toggle
+  const toggleBtn = document.getElementById('darkModeToggle');
+  const body = document.body;
+  const currentTheme = localStorage.getItem('theme');
+
+  if(currentTheme === 'dark') {
+    body.classList.add('dark-mode');
+    toggleBtn.textContent = '☀️';
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    if(body.classList.contains('dark-mode')) {
+      toggleBtn.textContent = '☀️';
+      localStorage.setItem('theme', 'dark');
+    } else {
+      toggleBtn.textContent = '🌙';
+      localStorage.setItem('theme', 'light');
+    }
+  });
+</script>
 
 </body>
 </html>
