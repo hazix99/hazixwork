@@ -2,39 +2,108 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Home - HazixWork</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HazixWork | Home</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+<header>
+  <h1>HazixWork</h1>
+  <nav>
+    <a href="index.html" class="active">Home</a>
+    <a href="apply.html">Apply</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <button id="darkModeToggle" aria-label="Toggle Dark Mode" title="Toggle Dark Mode">🌙</button>
+  </nav>
+</header>
 
-  <!-- Navbar -->
-  <header>
-    <nav class="navbar">
-      <a href="index.html" class="active">Home</a>
-      <a href="about.html">About</a>
-      <a href="apply.html">Apply</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+<main class="container">
+  <section class="hero" data-aos="fade-up">
+    <h2>Welcome to HazixWork</h2>
+    <p>Your gateway to online jobs and projects.</p>
+    <a href="apply.html" class="btn">Apply Now</a>
+    <input class="search-bar" type="text" placeholder="Search for a service..." />
+  </section>
 
-  <!-- Main content -->
-  <main class="main-content">
-    <h1>Welcome to HazixWork</h1>
-    <p>Your gateway to awesome job opportunities and projects.</p>
+  <section class="services" data-aos="fade-up" data-aos-delay="100">
+    <h2>Our Services</h2>
+    <ul>
+      <li><i class="fas fa-briefcase"></i> Remote Freelance Jobs</li>
+      <li><i class="fas fa-tasks"></i> Micro-Tasks & Projects</li>
+      <li><i class="fas fa-mobile-alt"></i> Mobile Job Applications</li>
+    </ul>
+  </section>
 
-    <!-- Large Apply Button -->
-    <a href="apply.html" class="btn-apply-large">Apply Now</a>
-  </main>
+  <section class="testimonials" data-aos="fade-up" data-aos-delay="200">
+    <h2>What People Say</h2>
+    <blockquote>“HazixWork helped me get my first online gig. Highly recommended!” – Amina R.</blockquote>
+    <blockquote>“Fast and easy application process. Thank you!” – Youssef K.</blockquote>
+  </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 HazixWork. All rights reserved.</p>
-    <p>Contact: 
-      <a href="mailto:hazixfreefire@gmail.com">Email</a> | 
-      <a href="https://wa.me/212751482553" target="_blank" rel="noopener">WhatsApp</a> | 
-      <a href="https://www.instagram.com/hazixwork/" target="_blank" rel="noopener">Instagram</a>
-    </p>
-  </footer>
+  <section class="stats" data-aos="fade-up" data-aos-delay="300">
+    <h2>Platform Stats</h2>
+    <div>
+      <p>👥 +200 Applicants</p>
+      <p>💼 +50 Projects Shared</p>
+      <p>📅 Active since 2024</p>
+    </div>
+  </section>
+
+  <section class="faq" data-aos="fade-up" data-aos-delay="400">
+    <h2>FAQ</h2>
+    <details>
+      <summary>How do I apply?</summary>
+      <p>Just click "Apply Now" and fill out the form.</p>
+    </details>
+    <details>
+      <summary>Is it free?</summary>
+      <p>Yes! No fees are required to apply.</p>
+    </details>
+  </section>
+</main>
+
+<footer>
+  <p>📧 <a href="mailto:hazixfreefire@gmail.com">hazixfreefire@gmail.com</a> | 📞 <a href="https://wa.me/212751482553" target="_blank">+212 751 482 553</a></p>
+  <p>&copy; 2025 HazixWork. All rights reserved.</p>
+</footer>
+
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+
+  // Dark Mode Toggle
+  const toggleBtn = document.getElementById('darkModeToggle');
+  const body = document.body;
+  const currentTheme = localStorage.getItem('theme');
+
+  if(currentTheme === 'dark') {
+    body.classList.add('dark-mode');
+    toggleBtn.textContent = '☀️';
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    if(body.classList.contains('dark-mode')) {
+      toggleBtn.textContent = '☀️';
+      localStorage.setItem('theme', 'dark');
+    } else {
+      toggleBtn.textContent = '🌙';
+      localStorage.setItem('theme', 'light');
+    }
+  });
+</script>
 
 </body>
 </html>
