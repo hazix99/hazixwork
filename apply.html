@@ -14,75 +14,81 @@
   <!-- AOS CSS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
+  <!-- External CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<header>
-  <h1>HazixWork</h1>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="apply.html" class="active">Apply</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-    <button id="darkModeToggle" aria-label="Toggle Dark Mode" title="Toggle Dark Mode">🌙</button>
-  </nav>
-</header>
+  <header>
+    <h1>HazixWork</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="apply.html" class="active">Apply</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <button id="darkModeToggle" aria-label="Toggle Dark Mode" title="Toggle Dark Mode">🌙</button>
+    </nav>
+  </header>
 
-<main class="container">
-  <section data-aos="fade-up">
-    <h2 style="text-align:center; margin-bottom: 25px;">Apply Now</h2>
-    <form action="thankyou.html" method="POST" enctype="multipart/form-data">
-      <label for="name">Full Name *</label>
-      <input type="text" id="name" name="name" placeholder="Your full name" required />
+  <main class="container">
+    <section data-aos="fade-up">
+      <h2 style="text-align:center; margin-bottom: 25px;">Apply Now</h2>
+      <form id="applyForm">
+        <label for="name">Full Name *</label>
+        <input type="text" id="name" name="name" placeholder="Your full name" required />
 
-      <label for="email">Email Address *</label>
-      <input type="email" id="email" name="email" placeholder="Your email" required />
+        <label for="email">Email Address *</label>
+        <input type="email" id="email" name="email" placeholder="Your email" required />
 
-      <label for="phone">Phone Number</label>
-      <input type="tel" id="phone" name="phone" placeholder="Optional" />
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="Optional" />
 
-      <label for="cv">Upload Your CV</label>
-      <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" />
+        <label for="cv">Upload Your CV</label>
+        <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" />
 
-      <label for="message">Additional Info</label>
-      <textarea id="message" name="message" placeholder="Tell us more about yourself"></textarea>
+        <label for="message">Additional Info</label>
+        <textarea id="message" name="message" placeholder="Tell us more about yourself"></textarea>
 
-      <button type="submit" class="btn">Submit Application</button>
-    </form>
-  </section>
-</main>
+        <button type="submit" class="btn">Submit Application</button>
+      </form>
+    </section>
+  </main>
 
-<footer>
-  <p>📧 <a href="mailto:hazixfreefire@gmail.com">hazixfreefire@gmail.com</a> | 📞 <a href="https://wa.me/212751482553" target="_blank">+212 751 482 553</a></p>
-  <p>&copy; 2025 HazixWork. All rights reserved.</p>
-</footer>
+  <footer>
+    <p>📧 <a href="mailto:hazixfreefire@gmail.com">hazixfreefire@gmail.com</a> | 📞 <a href="https://wa.me/212751482553" target="_blank" rel="noopener noreferrer">+212 751 482 553</a></p>
+    <p>&copy; 2025 HazixWork. All rights reserved.</p>
+  </footer>
 
-<!-- AOS JS -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  AOS.init();
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
 
-  // Dark Mode Toggle
-  const toggleBtn = document.getElementById('darkModeToggle');
-  const body = document.body;
-  const currentTheme = localStorage.getItem('theme');
+    // Dark Mode Toggle
+    const toggleBtn = document.getElementById('darkModeToggle');
+    const body = document.body;
+    const currentTheme = localStorage.getItem('theme');
 
-  if(currentTheme === 'dark') {
-    body.classList.add('dark-mode');
-    toggleBtn.textContent = '☀️';
-  }
-
-  toggleBtn.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
-    if(body.classList.contains('dark-mode')) {
+    if (currentTheme === 'dark') {
+      body.classList.add('dark-mode');
       toggleBtn.textContent = '☀️';
-      localStorage.setItem('theme', 'dark');
-    } else {
-      toggleBtn.textContent = '🌙';
-      localStorage.setItem('theme', 'light');
     }
-  });
-</script>
 
+    toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      if (body.classList.contains('dark-mode')) {
+        toggleBtn.textContent = '☀️';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        toggleBtn.textContent = '🌙';
+        localStorage.setItem('theme', 'light');
+      }
+    });
+
+    // Redirect to thank you page on form submission
+    document.getElementById('applyForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      window.location.href = 'thankyou.html'; // غيّر حسب مسار الصفحة عندك
+    });
+  </script>
 </body>
 </html>
