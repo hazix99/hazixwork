@@ -2,38 +2,91 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Contact - HazixWork</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HazixWork | Contact</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* تعديل خاص لوسط الصفحة */
+    main.container {
+      display: flex !important;
+      justify-content: center;
+      align-items: center;
+      min-height: 80vh; /* ارتفاع كبير باش يجي في الوسط عمودياً */
+      padding: 20px;
+    }
+  </style>
 </head>
 <body>
+<header>
+  <h1>HazixWork</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="apply.html">Apply</a>
+    <a href="about.html">About</a>
+    <a href="contact.html" class="active">Contact</a>
+    <button id="darkModeToggle" aria-label="Toggle Dark Mode" title="Toggle Dark Mode">🌙</button>
+  </nav>
+</header>
 
-  <!-- Navbar -->
-  <header>
-    <nav class="navbar">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="apply.html">Apply</a>
-      <a href="contact.html" class="active">Contact</a>
-    </nav>
-  </header>
+<main class="container" data-aos="fade-up">
+  <section style="width: 100%; max-width: 500px;">
+    <h2 style="text-align:center; margin-bottom: 25px;">Contact Us</h2>
+    <form action="mailto:hazixfreefire@gmail.com" method="POST" enctype="text/plain">
+      <label for="name">Full Name *</label>
+      <input type="text" id="name" name="name" placeholder="Your full name" required />
 
-  <!-- Contact info -->
-  <main class="contact-container">
-    <h2>Contact Us</h2>
-    <p>Email: <a href="mailto:hazixfreefire@gmail.com">hazixfreefire@gmail.com</a></p>
-    <p>WhatsApp: <a href="https://wa.me/212751482553" target="_blank" rel="noopener">+212 751 482 553</a></p>
-    <p>Instagram: <a href="https://www.instagram.com/hazixwork/" target="_blank" rel="noopener">@hazixwork</a></p>
-  </main>
+      <label for="email">Email Address *</label>
+      <input type="email" id="email" name="email" placeholder="Your email" required />
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 HazixWork. All rights reserved.</p>
-    <p>Contact: 
-      <a href="mailto:hazixfreefire@gmail.com">Email</a> | 
-      <a href="https://wa.me/212751482553" target="_blank" rel="noopener">WhatsApp</a> | 
-      <a href="https://www.instagram.com/hazixwork/" target="_blank" rel="noopener">Instagram</a>
-    </p>
-  </footer>
+      <label for="message">Message *</label>
+      <textarea id="message" name="message" placeholder="Your message" required></textarea>
+
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <p>📧 <a href="mailto:hazixfreefire@gmail.com">hazixfreefire@gmail.com</a> | 📞 <a href="https://wa.me/212751482553" target="_blank">+212 751 482 553</a></p>
+  <p>&copy; 2025 HazixWork. All rights reserved.</p>
+</footer>
+
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+
+  // Dark Mode Toggle
+  const toggleBtn = document.getElementById('darkModeToggle');
+  const body = document.body;
+  const currentTheme = localStorage.getItem('theme');
+
+  if(currentTheme === 'dark') {
+    body.classList.add('dark-mode');
+    toggleBtn.textContent = '☀️';
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    if(body.classList.contains('dark-mode')) {
+      toggleBtn.textContent = '☀️';
+      localStorage.setItem('theme', 'dark');
+    } else {
+      toggleBtn.textContent = '🌙';
+      localStorage.setItem('theme', 'light');
+    }
+  });
+</script>
 
 </body>
 </html>
